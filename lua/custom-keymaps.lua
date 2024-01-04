@@ -6,3 +6,4 @@ vim.keymap.set('n', '<leader>cp', function()
   vim.fn.setreg('*', path_with_line)
   print('Copied to clipboard: ' .. path_with_line)
 end, { desc = 'Copy file path and line number to clipboard' })
+vim.opt.clipboard= "unnamedplus"

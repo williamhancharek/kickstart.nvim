@@ -25,4 +25,4 @@ function ConvertEditCommand()
 end
 
 -- Key mapping for ConvertEditCommand function
-vim.api.nvim_set_keymap('n', '<Leader>gf', ':lua ConvertEditCommand()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gl', ':lua ConvertEditCommand()<CR>', { noremap = true })

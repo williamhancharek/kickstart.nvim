@@ -1,4 +1,7 @@
+local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>1', ':MaximizerToggle!<CR>', { desc = 'Show [1] window' })
+vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = '[S]earch [Q]uick fix' })
+vim.keymap.set('n', '<leader>sa', builtin.git_files, { desc = '[S]earch [A]ll Git files' })
 vim.keymap.set('n', '<leader>cp', function()
   local file_path = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
   local line_number = vim.fn.line '.'

@@ -651,6 +651,7 @@ require('lazy').setup({
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
         local disable_filetypes = { c = true, cpp = true }
+
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -658,8 +659,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        eruby = { 'htmlbeautifier' },
-        yml = { 'yamlfix' },
+        eruby = { 'yamlfix', 'htmlbeautifier' },
         yaml = { 'yamlfix' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },

@@ -769,7 +769,9 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        eruby = { 'erb_format' },
+        eruby = { 'htmlbeautifier' },
+        yml = { 'yamlfix' },
+        yaml = { 'yamlfix' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

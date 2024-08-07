@@ -30,17 +30,6 @@ end
 -- Key mapping for ConvertEditCommand function
 vim.api.nvim_set_keymap('n', '<Leader>gl', ':lua ConvertEditCommand()<CR>', { noremap = true })
 
--- Key mappings for turning format on save on and off'
-require('conform').setup {
-  format_on_save = function(bufnr)
-    -- Disable with a global or buffer-local variable
-    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-      return
-    end
-    return { timeout_ms = 500, lsp_fallback = true }
-  end,
-}
-
 vim.api.nvim_create_user_command('FormatDisable', function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
@@ -58,3 +47,22 @@ vim.api.nvim_create_user_command('FormatEnable', function()
 end, {
   desc = 'Re-enable autoformat-on-save',
 })
+
+-- Function to run rubocop -a on the current buffer
+function RubocopAutoFix()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local filename = vim.api.nvim_buf_get_name(bufnr)
+
+  -- Save the current buffer
+  vim.cmd 'write'
+
+  -- Run rubocop -a on the file
+  local cmd = 'rubocop -a ' .. filename
+  vim.cmd('!' .. cmd)
+
+  -- Reload the buffer to show changes
+  vim.cmd 'edit!'
+end
+
+-- Map the function to <leader>f
+vim.api.nvim_set_keymap('n', '<leader>f', ':lua RubocopAutoFix()<CR>', { noremap = true, silent = true })

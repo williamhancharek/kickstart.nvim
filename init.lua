@@ -652,7 +652,7 @@ require('lazy').setup({
         }
       end,
       formatters_by_ft = {
-        ruby = { 'rubocop' },
+        ruby = { 'solargraph' },
         lua = { 'stylua' },
         eruby = { 'yamlfix', 'htmlbeautifier' },
         yaml = { 'yamlfix' },

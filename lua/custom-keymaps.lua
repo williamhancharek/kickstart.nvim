@@ -1,4 +1,6 @@
 local builtin = require 'telescope.builtin'
+
+vim.keymap.set('i', '<C-L>', '<Plug>(copilot-suggest-word)')
 vim.keymap.set('n', '<leader>1', ':MaximizerToggle!<CR>', { desc = 'Show [1] window' })
 vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = '[S]earch [Q]uick fix' })
 vim.keymap.set('n', '<leader>sa', builtin.git_files, { desc = '[S]earch [A]ll Git files' })

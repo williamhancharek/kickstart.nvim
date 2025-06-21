@@ -246,6 +246,20 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  {
+    'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+    config = function()
+      require('guess-indent').setup {
+        auto_cmd = true, -- Enable automatic detection
+        override_editorconfig = true, -- Override .editorconfig settings
+        filetype_exclude = {}, -- Exclude specific filetypes if needed
+        buftype_exclude = {}, -- Exclude specific buffer types if needed
+        default_shiftwidth = 2, -- Default to 2 spaces
+        default_expandtab = true, -- Always use spaces, never tabs
+      }
+    end,
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
